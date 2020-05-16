@@ -1,0 +1,17 @@
+<button mat-raised-button class="action-icon" title="Powrót" aria-hidden="false" [routerLink]="'/champions'">Powrót</button>
+<br/>
+<mat-card *ngIf="champion" class="card-card">
+    <mat-card-header class="card-title">
+      <div mat-card-avatar></div>
+      <mat-card-title>{{champion.firstName}}</mat-card-title>
+      <mat-card-subtitle>Position: {{champion.defaultPosition}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image class="mat-card-image" [attr.src]="'https://localhost:5001/'+champion.avatarUrl">
+    <mat-card-content>
+      <p>
+        {{champion.bio}}
+      </p>
+    </mat-card-content>
+        <button mat-button [routerLink]="'/edit-champion/'+champion.id">Edytuj</button>
+  </mat-card>
+  

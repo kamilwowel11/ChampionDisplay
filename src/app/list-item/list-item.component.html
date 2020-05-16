@@ -1,0 +1,19 @@
+<mat-expansion-panel (click)="setTitleBarText(champion.bio)">
+  <mat-expansion-panel-header>
+    <mat-panel-title class="list-item-title">
+      <img mat-image class="list-item-header-image" [src]="champion.adress" [routerLink]="'/champion-details/'+champion.id">
+    </mat-panel-title>
+    <mat-panel-title class="list-item-title-text">
+      {{champion.firstName}}
+    </mat-panel-title>
+    <mat-panel-title class="list-item-title">
+    <button mat-button (click)="onDelete()">Usuń</button>
+  </mat-panel-title>
+  <mat-panel-title class="list-item-title">
+    <button mat-button [routerLink]="'/edit-champion/'+champion.id">Edytuj</button>
+  </mat-panel-title>
+    <mat-panel-description id ="bio" class="list-item-description">
+      {{champion.bio}}
+    </mat-panel-description>
+  </mat-expansion-panel-header> 
+</mat-expansion-panel>

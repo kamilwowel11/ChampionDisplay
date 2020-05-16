@@ -1,0 +1,26 @@
+<mat-card class="card-card">
+
+  <mat-card-header class="card-title">
+    <mat-card-title>{{champion.firstName}}</mat-card-title>
+    <mat-card-subtitle>{{champion.defaultPosition}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="champion.adress">
+
+  <mat-card-content (click)="setTitleBarText(champion.bio)">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Champion description
+        </mat-panel-title>
+        <mat-panel-description style="vertical-align: bottom;">
+          Expand
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      {{champion.bio}}
+    </mat-expansion-panel>
+    
+  </mat-card-content>
+  <button mat-button [routerLink]="'/edit-champion/'+champion.id">Usuń</button>
+  <button mat-button [routerLink]="'/edit-champion/'+champion.id">Edytuj</button>
+
+</mat-card>

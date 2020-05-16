@@ -1,0 +1,26 @@
+.card-card {
+  width: 270px;
+  max-height: 400px;
+  text-align: center;
+}
+
+.card-header-image {
+  background-size: cover;
+}
+
+.mat-card-image {
+  margin-left: 13%;
+  margin-right: 14%;
+  min-width: 150px;
+  min-height: 150px;
+  max-width: 200px;;
+  max-height: 200px;
+}
+
+.card-title{
+  margin: auto;
+  margin-top: 15%;
+  display: inline-block;
+    margin: auto;
+    width: 75%;
+}

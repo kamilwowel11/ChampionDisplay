@@ -1,0 +1,30 @@
+
+<form [formGroup]="form" (ngSubmit)="submitChanges()" class="form-add-class">
+    <button mat-raised-button class="action-icon" title="Powrót" aria-hidden="false" [routerLink]="'/champions'">Powrót</button>
+    <br>
+    <mat-form-field>
+        <mat-label>Champion Name</mat-label>
+        <input matInput type="text" matInput placeholder="Champion Name" formControlName="firstName">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Champion Description</mat-label>
+        <input matInput type="text" matInput placeholder="Description..." formControlName="description">
+        
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Champion Position</mat-label>
+        <input matInput type="text" matInput placeholder="Position" formControlName="position">
+        <br>
+       
+    </mat-form-field>
+    <div>(Botlane/Midlane/Toplane/Jungle)</div>
+    <br>
+    
+
+    <app-upload-component (uploadFinished)="uploadFinished($event)"></app-upload-component>
+
+    <button mat-raised-button type="submit" style="margin-left: 20px;" (onclick)="submitChanges()">Save</button>
+
+</form>

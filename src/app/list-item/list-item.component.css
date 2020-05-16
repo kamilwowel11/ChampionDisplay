@@ -1,0 +1,28 @@
+.list-item-header-image {
+  background-size: cover;
+  border-radius: 50%;
+  padding: 10px;
+  margin-right: 10%;
+  width: 70px;
+  height: 70px;
+  
+}
+.list-item-title-text{
+  margin-top: 15px;
+  margin-left: 2px;
+  width: 100px;
+
+}
+
+.mat-expansion-panel {
+  padding: 10px;
+}
+
+.list-item-title {
+  width: 100px;
+}
+
+.list-item-description {
+  width: 900px;
+  margin-top: 20px;
+}
