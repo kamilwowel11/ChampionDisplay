@@ -1,4 +1,12 @@
-
+<mat-toolbar-row style="height: 120px; background-color:black">
+    <span class="league-title-center">
+      <div>
+        <p>
+          <img class="league-title"src="/assets/logoTitle2.png" alt="...">
+        </p>
+      </div>
+    </span>
+  </mat-toolbar-row> 
 <form [formGroup]="form" (ngSubmit)="submitChanges()" class="form-add-class">
     <button mat-raised-button class="action-icon" title="Powrót" aria-hidden="false" [routerLink]="'/champions'">Powrót</button>
     <br>
@@ -25,6 +33,6 @@
 
     <app-upload-component (uploadFinished)="uploadFinished($event)"></app-upload-component>
 
-    <button mat-raised-button type="submit" style="margin-left: 20px;" (onclick)="submitChanges()">Save</button>
+    <button mat-raised-button type="submit" style="margin-left: 20px;" (onclick)="submitChanges()" style="left: 20px;">Save</button>
 
 </form>

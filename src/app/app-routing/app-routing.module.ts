@@ -5,14 +5,22 @@ import { AddChampionComponent } from '../add-champion/add-champion.component';
 import { LandingComponent } from '../landing/landing.component';
 import { ChampionSingleComponent } from '../champion-single/champion-single.component';
 import { ChampionAllComponent } from '../champion-all/champion-all.component';
+import { LoginComponent } from '../login/login.component';
 
 
 
 
 const routes: Routes = [
   {
+    path: 'login',
+    component: LoginComponent,
+    data: {
+      isEdit: false
+    }
+},
+  {
     path: '',
-    component: LandingComponent,
+    component: LoginComponent,
     data: {
       isEdit: false
     }
@@ -34,11 +42,11 @@ const routes: Routes = [
   {
     path: 'champion-details/:id',
     component: ChampionSingleComponent, // nowy component do wyświetlania danych jednego championa
-},
-{
+  },
+  {
   path: 'champions',
   component: ChampionAllComponent, // nowy component do wyświetlania danych wyszstkich championów
-}
+  }
 ];
 
 

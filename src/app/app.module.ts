@@ -7,9 +7,9 @@ import { ListItemComponent } from './list-item/list-item.component';
 import { AddChampionComponent } from './add-champion/add-champion.component';
 import { UploadComponentComponent } from './upload-component/upload-component.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ChampionService } from './services/champions/champions.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon'; 
 import { MatRadioModule } from '@angular/material/radio';
 import {MatButtonModule} from '@angular/material/button'; 
@@ -28,9 +28,18 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChampionSingleComponent } from './champion-single/champion-single.component';
 import { ChampionAllComponent } from './champion-all/champion-all.component';
+import { LoginComponent } from './login/login.component';
+import { MatSelectModule } from '@angular/material/select';
+import { environment } from 'src/environments/environment';
+import { JwtModule } from '@auth0/angular-jwt';
+import { AuthInterceptor } from './auth-interceptor';
 
 
 
+export function tokenGetter(){
+  console.log(localStorage.getItem('token'));
+  return localStorage.getItem('token');
+}
 
 
 @NgModule({
@@ -43,6 +52,7 @@ import { ChampionAllComponent } from './champion-all/champion-all.component';
     UploadComponentComponent,
     ChampionSingleComponent,
     ChampionAllComponent,
+    LoginComponent,
     
   ],
   imports: [
@@ -67,9 +77,27 @@ import { ChampionAllComponent } from './champion-all/champion-all.component';
     MatExpansionModule,
     MatButtonToggleModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatSelectModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        whitelistedDomains: [],
+        blacklistedRoutes: []
+      }
+    }),
+    
+
   ],
   providers: [
     ChampionService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+    
   ],
   bootstrap: [AppComponent]
 })

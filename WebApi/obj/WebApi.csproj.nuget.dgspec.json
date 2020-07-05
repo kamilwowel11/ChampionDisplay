@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Loniek\\Desktop\\Angular 2,3,4 zadanie\\ChampionDataDsiplay\\WebApi\\WebApi.csproj": {}
+    "C:\\Users\\Loniek\\Desktop\\6 Semestr\\TIU - Angular\\Zadanie 2,3,4\\Angular 2,3,4 zadanie\\ChampionDataDsiplay\\WebApi\\WebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Loniek\\Desktop\\Angular 2,3,4 zadanie\\ChampionDataDsiplay\\WebApi\\WebApi.csproj": {
+    "C:\\Users\\Loniek\\Desktop\\6 Semestr\\TIU - Angular\\Zadanie 2,3,4\\Angular 2,3,4 zadanie\\ChampionDataDsiplay\\WebApi\\WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Loniek\\Desktop\\Angular 2,3,4 zadanie\\ChampionDataDsiplay\\WebApi\\WebApi.csproj",
+        "projectUniqueName": "C:\\Users\\Loniek\\Desktop\\6 Semestr\\TIU - Angular\\Zadanie 2,3,4\\Angular 2,3,4 zadanie\\ChampionDataDsiplay\\WebApi\\WebApi.csproj",
         "projectName": "WebApi",
-        "projectPath": "C:\\Users\\Loniek\\Desktop\\Angular 2,3,4 zadanie\\ChampionDataDsiplay\\WebApi\\WebApi.csproj",
+        "projectPath": "C:\\Users\\Loniek\\Desktop\\6 Semestr\\TIU - Angular\\Zadanie 2,3,4\\Angular 2,3,4 zadanie\\ChampionDataDsiplay\\WebApi\\WebApi.csproj",
         "packagesPath": "C:\\Users\\Loniek\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Loniek\\Desktop\\Angular 2,3,4 zadanie\\ChampionDataDsiplay\\WebApi\\obj\\",
+        "outputPath": "C:\\Users\\Loniek\\Desktop\\6 Semestr\\TIU - Angular\\Zadanie 2,3,4\\Angular 2,3,4 zadanie\\ChampionDataDsiplay\\WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -50,6 +50,10 @@
               "target": "Package",
               "version": "[7.0.0, )"
             },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.3, )"
@@ -67,6 +71,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.3, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.5.1, )"
             }
           },
           "imports": [

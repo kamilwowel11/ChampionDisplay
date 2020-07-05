@@ -20,7 +20,7 @@
     </mat-expansion-panel>
     
   </mat-card-content>
-  <button mat-button [routerLink]="'/edit-champion/'+champion.id">Usuń</button>
-  <button mat-button [routerLink]="'/edit-champion/'+champion.id">Edytuj</button>
+  <button mat-button [routerLink]="'/edit-champion/'+champion.id" *ngIf="isAdmin()">Usuń</button>
+  <button mat-button [routerLink]="'/edit-champion/'+champion.id" *ngIf="isAdmin()">Edytuj</button>
 
 </mat-card>

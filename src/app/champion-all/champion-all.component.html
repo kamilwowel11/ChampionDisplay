@@ -1,15 +1,84 @@
-<mat-toolbar style="background-color:mediumpurple">
-    <mat-toolbar-row class="LeagueTitle" style="background-color:darkviolet">
-      <span style="font-style: oblique; margin-top: 12px; font-size: 35px;">League of Legends</span>
-    </mat-toolbar-row>
-    
+
+ <mat-toolbar-row style="height: 120px; background-color:black">
+  <span class="league-title-center">
+    <div>
+      <p>
+        <img class="league-title"src="/assets/logoTitle2.png" alt="...">
+      </p>
+    </div>
+  </span>
+</mat-toolbar-row> 
+<mat-toolbar style="background-color:darkviolet">
     <mat-toolbar-row>
+      <div class="list-settings">
+        <form (ngSubmit)="filterResults()" #filtersForm="ngForm">
+          <mat-form-field>
+            <mat-label>Champion Name</mat-label>
+            <input
+              id="firstName"
+              [(ngModel)]="filters.firstName"
+              name="firstName"
+              #firstName="ngModel"
+              matInput
+              [placeholder]="filters.firstName"
+              value="{{ filters.firstName }}"
+            />
+          </mat-form-field>
+      
+          <mat-form-field>
+            <mat-label>Position</mat-label>
+            <input
+              id="defaultPostion"
+              [(ngModel)]="filters.defaultPosition"
+              name="defaultPostion"
+              #defaultPostion="ngModel"
+              matInput
+              [placeholder]="filters.defaultPosition"
+              value="{{ filters.defaultPosition }}"
+            />
+          </mat-form-field>
+      
+          <div mat-dialog-actions>
+            <button color="accent" mat-raised-button (click)="resetFilters()">
+              Reset filters
+            </button>
+            <button color="accent" type="submit" mat-raised-button >Ok</button>
+          </div>
+        </form>
+      
+        <mat-form-field class="list-select">
+          <mat-label>Sorting</mat-label>
+          <mat-select [(value)]="orderBy" (selectionChange)="orderByChanged()">
+            <mat-option>Don't Sort</mat-option>
+            <mat-option value="firstName">Champion Name, from A to Z</mat-option>
+            <mat-option value="firstNameDescending">Champion Name, from Z to A</mat-option>
+            <mat-option value="defaultPostion">Position, from A to Z</mat-option>
+            <mat-option value="defaultPostionDescending">Position, from Z to A</mat-option>
+          </mat-select>
+        </mat-form-field>
+      
+        <button class="list-csv-button" color="error" type="submit" (click)="getCsvFile()" mat-raised-button>Download file .csv</button>
+        <!-- Pamiętać o *ngIf="""-->
+        <!-- <mat-paginator *ngIf="paginationSettings"
+        #paginator
+          [length]="paginationSettings.totalItems"
+          [pageIndex]="1"
+          [pageSize]="10"
+          [pageSizeOptions]="pageSizeOptions"
+          (page)="pageEvent = getChampions($event, filters, orderBy)"
+        >
+        </mat-paginator> -->
+        <button class="navbar-button" *ngIf="loggedIn()" (click)="logout()" mat-raised-button color="accent" style="left: 900px; text-align: center;" >Wyloguj</button>
+      </div>
+    </mat-toolbar-row>
+
+    <mat-toolbar-row style="background-color:darkviolet">
       <span class="landing-text">{{topBarTitle}}</span>
       <span class="landing-fill-remaining-space"></span>
-      <mat-button-toggle (change)="toggleGrid()">
-      Switch to grid or list
+      <mat-button-toggle (change)="toggleGrid()" value="Switch to grid or list">
+        Switch to grid or list
       </mat-button-toggle>
-      <button mat-icon-button color="accent" aria-label="Example icon-button with a heart icon" style="right: 1805px;" [routerLink]="'../add-champion'">
+      <button mat-icon-button color="accent" *ngIf="isAdmin()" aria-label="Example icon-button with a heart icon" style="right: 1805px;" [routerLink]="'../add-champion'">
         <mat-icon>favorite</mat-icon>
       </button>
     </mat-toolbar-row>

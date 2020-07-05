@@ -22,4 +22,13 @@
     margin: auto;
     width: 75%;
   }
+  .league-title{
+    height: 35%;
+    width: 35%;
+  }
+  .league-title-center{
+    position: absolute;
+    right: 300px;
+    padding: 10px;
+  }
   

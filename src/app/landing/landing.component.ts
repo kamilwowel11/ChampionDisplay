@@ -16,7 +16,7 @@ export class LandingComponent implements OnInit {
 
   ngOnInit(): void {
    this.service.getChampions().subscribe(res => {
-    this.champions=res;
+    this.champions=res.data;
    });
   }
 

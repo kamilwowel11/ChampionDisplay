@@ -1,26 +1,46 @@
 .landing-fill-remaining-space {
-    /* This fills the remaining space, by using flexbox.
-       Every toolbar row uses a flexbox row layout. */
-    flex: 1 1 auto;
+  /* This fills the remaining space, by using flexbox.
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+
+.landing-text {
+  padding-left: 50px;
+  padding-right: 50px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: auto;
+  display: inline-block;
+    margin: auto;
+    width: 75%;
+    text-align: center;
+}
+.league-title{
+  height: 35%;
+  width: 35%;
+}
+.league-title-center{
+  position: absolute;
+  right: 300px;
+  padding: 10px;
+}
+  .list-settings {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
   }
   
-  .landing-text {
-    padding-left: 50px;
-    padding-right: 50px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin: auto;
-    display: inline-block;
-      margin: auto;
-      width: 75%;
-      text-align: center;
+  form {
+    display: flex;
   }
-  .LeagueTitle{
-    margin: auto;
-    display: inline-block;
-      margin: auto;
-      width: 75%;
-      text-align: center;
+  
+  mat-form-field {
+    padding: 5px;
+  }
+  
+  button {
+      top: 20%;
   }
   

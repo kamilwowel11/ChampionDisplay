@@ -1,7 +1,16 @@
 .form-add-class{
     align-items: center;
-    margin-left: 50%;
+    margin-left: 45%;
 }
 .action-icon{
-    margin-left: 50px;
+    margin-left: 45px;
 }
+.league-title{
+    height: 35%;
+    width: 35%;
+  }
+  .league-title-center{
+    position: absolute;
+    right: 300px;
+    padding: 10px;
+  }

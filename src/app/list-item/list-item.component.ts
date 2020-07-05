@@ -4,6 +4,10 @@ import { Router } from '@angular/router';
 import { ChampionService } from '../services/champions/champions.service';
 import { first } from 'rxjs/operators';
 import { Variable } from '@angular/compiler/src/render3/r3_ast';
+import { AuthService } from '../services/auth.service';
+import { PaginatedResults, Pagination } from '../models/Pagination';
+import { PageEvent } from '@angular/material/paginator';
+import { Filters } from '../models/Filters';
 
 @Component({
   selector: 'app-list-item',
@@ -18,7 +22,8 @@ export class ListItemComponent implements OnInit {
   adressTemp1: string;
   private expanded = false;
 
-  constructor(private championService: ChampionService, private router: Router) { }
+
+  constructor(private championService: ChampionService, private router: Router,public auth: AuthService) { }
   
 
   ngOnInit(): void {
@@ -51,5 +56,8 @@ export class ListItemComponent implements OnInit {
       this.titleBarText.emit(text);
       this.expanded = true;
     }
+  }
+  isAdmin(): boolean {
+    return this.auth.isAdmin();
   }
 }

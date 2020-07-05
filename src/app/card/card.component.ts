@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Champion} from '../models/champion';
 import {ChampionService} from '../services/champions/champions.service';
 import { first } from 'rxjs/operators';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-card',
@@ -14,9 +15,10 @@ export class CardComponent implements OnInit {
   private expanded = false;
   adressTemp: string;
   adressTemp1: string;
-  championService: ChampionService;
+ 
 
-  constructor(peopleService: ChampionService) {}
+
+  constructor(private championService: ChampionService, private auth: AuthService) {}
 
   ngOnInit(): void {
     this.champion.adress ="";
@@ -47,5 +49,8 @@ export class CardComponent implements OnInit {
         console.log("Nie udało się usunąć Championa");
       }
     });
+  }
+  isAdmin(): boolean {
+    return this.auth.isAdmin();
   }
 }

@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebApi.Infrastructure.Context;
 using WebApi.Infrastructure.Models;
+using WebApi.DTO;
+using WebApi.Helpers;
 
 namespace WebApi.Infrastructure.Repositories
 {
@@ -40,9 +42,40 @@ namespace WebApi.Infrastructure.Repositories
       return await context.Champions.FirstOrDefaultAsync(e => e.Id==id);
     }
 
-    public async Task<IEnumerable<ChampionEntity>> GetAll()
+    public async Task<PagedList<ChampionEntity>> GetAll(ChampionPaginationParamsDto championParamsDto)
     {
-      return await context.Champions.ToListAsync();
+      //return await context.Champions.ToListAsync();
+      var champions = context.Champions.AsQueryable();
+
+      // Filtr
+      if (!String.IsNullOrEmpty(championParamsDto.FirstName))
+      {
+        champions = champions.Where(x => x.FirstName == championParamsDto.FirstName);
+      }
+      if (!String.IsNullOrEmpty(championParamsDto.DefaultPosition))
+      {
+        champions = champions.Where(x => x.DefaultPosition == championParamsDto.DefaultPosition);
+      }
+
+      switch (championParamsDto.OrderBy)
+      {
+        case "firstName":
+          champions = champions.OrderBy(x => x.FirstName);
+          break;
+        case "firstNameDescending":
+          champions = champions.OrderByDescending(x => x.FirstName);
+          break;
+        case "defaultPosition":
+          champions = champions.OrderByDescending(x => x.DefaultPosition);
+          break;
+        case "defaultPositionDescending":
+          champions = champions.OrderByDescending(x => x.DefaultPosition);
+          break;
+
+
+      }
+
+      return await PagedList<ChampionEntity>.CreateAsync(champions, championParamsDto.PageNumber, championParamsDto.PageSize);
     }
 
     public int Update(ChampionEntity entity)
